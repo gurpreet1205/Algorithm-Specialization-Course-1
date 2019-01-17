@@ -38,7 +38,6 @@ string add(string n1,string n2)
 }
 string Karatsuba_multiplication(string n1,string n2)
 {
-	//cout<<n1<<n2<<"\n";
 	int l1=n1.length(),l2=n2.length(),i;
 	if(l1==1&&l2==1)
 	{
@@ -46,10 +45,8 @@ string Karatsuba_multiplication(string n1,string n2)
 		str1<<(n1[0]-'0')*(n2[0]-'0');
 		return str1.str();
 	}
-	if(l1==1)
-		return n2;
-	if(l2==1)
-		return n1;
+	if(l1==0||l2==0)
+		return "0";
 	string a=n1.substr(0,l1/2),b=n1.substr(l1/2,l1-(l1/2));
 	string c=n2.substr(0,l2/2),d=n2.substr(l2/2,l2-(l2/2));
 	string p,q,r,s,t="",u="",x,y,z;
@@ -57,9 +54,9 @@ string Karatsuba_multiplication(string n1,string n2)
 	q=Karatsuba_multiplication(a,d);
 	r=Karatsuba_multiplication(b,c);
 	s=Karatsuba_multiplication(b,d);
-	for(i=0;i<l1/2;i++)
+	for(i=0;i<l1-l1/2;i++)
 		t=t+"0";
-	for(i=0;i<l2/2;i++)
+	for(i=0;i<l2-l2/2;i++)
 		u=u+"0";
 	p.append(t+u);
 	q.append(t);
@@ -87,7 +84,5 @@ int main()
 		cout<<res.substr(i,l-i)<<endl;
 	return 0;
 }
-
-
 
 // 3141592653589793238462643383279502884197169399375105820974944592 * 2718281828459045235360287471352662497757247093699959574966967627 = 8539734222673567065463550869546574495034888535765114961879601127067743044893204848617875072216249073013374895871952806582723184
