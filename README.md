@@ -1,1 +1,1 @@
-Implemented Karatsuba multiplication algorithm
+Implemented Karatsuba multiplication algorithm in Assignment 1
